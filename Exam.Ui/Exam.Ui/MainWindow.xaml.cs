@@ -45,8 +45,7 @@ namespace Exam.Ui
         {
             try
             {
-
-                if (string.IsNullOrWhiteSpace(urlTextBox.Text) || string.IsNullOrWhiteSpace(fileNameTextBox.Text))
+                if (!string.IsNullOrWhiteSpace(urlTextBox.Text) && !string.IsNullOrWhiteSpace(fileNameTextBox.Text))
                 {
                     using (var client = new WebClient())
                     {
@@ -91,7 +90,6 @@ namespace Exam.Ui
                     await context.SaveChangesAsync();
                 }
             }
-            
         }
 
         private void Client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
